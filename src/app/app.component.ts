@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonApp, IonRouterOutlet } from '@ionic/angular';
 import {addIcons} from "ionicons";
-import {bookOutline, waterOutline, pulseOutline, personOutline, water} from "ionicons/icons";
+import {homeSharp, imagesSharp, calendarClearSharp, personSharp} from "ionicons/icons";
 
 @Component({
   selector: 'app-root',
@@ -10,6 +10,6 @@ import {bookOutline, waterOutline, pulseOutline, personOutline, water} from "ion
 })
 export class AppComponent {
   constructor() {
-    addIcons({bookOutline, waterOutline, pulseOutline, personOutline, water});
+    addIcons({homeSharp, imagesSharp, calendarClearSharp, personSharp});
   }
 }
