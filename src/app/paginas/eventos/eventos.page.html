@@ -1,13 +1,82 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>eventos</ion-title>
+<ion-header class="ion-no-border">
+  <ion-toolbar class="ion-no-padding barra">
+    <div class="ion-display-flex ion-align-items-center ion-padding-horizontal busqueda-filtro">
+      <ion-searchbar placeholder="Escribe el título del evento..." class="busqueda"></ion-searchbar>
+      <ion-buttons slot="end">
+        <ion-button id="abrir-filtros">
+          <ion-icon slot="icon-only" name="options-outline"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+    </div>
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">eventos</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <div class="ion-display-flex ion-align-items-center encabezado">
+    <h1>Eventos próximos</h1>
+    <ion-button routerLink="/proximos" fill="clear">
+      <ion-icon slot="icon-only" name="arrow-forward-sharp" class="flecha"></ion-icon>
+    </ion-button>
+  </div>
+
+  <swiper-container
+    slides-per-view="1.2"
+    space-between="12"
+  >
+    @for (evento of eventos; track evento.id) {
+      <swiper-slide>
+        <app-tarjeta-evento [evento]="evento"/>
+      </swiper-slide>
+    }
+  </swiper-container>
+
+  <div class="ion-display-flex ion-align-items-center encabezado">
+    <h1>Eventos deportivos</h1>
+    <ion-button routerLink="/deporte" fill="clear">
+      <ion-icon slot="icon-only" name="arrow-forward-sharp" class="flecha"></ion-icon>
+    </ion-button>
+  </div>
+
+  <swiper-container
+    slides-per-view="1.2"
+    space-between="12"
+  >
+    @for (evento of eventos; track evento.id) {
+      <swiper-slide>
+        <app-tarjeta-evento [evento]="evento"/>
+      </swiper-slide>
+    }
+  </swiper-container>
+
+  <ion-modal #modal trigger="abrir-filtros">
+    <ng-template>
+      <ion-content class="ion-padding">
+        <div class="ion-display-flex ion-align-items-center cabecera-filtro">
+          <h1 class="encabezado-filtro">Filtros</h1>
+          <ion-button fill="clear" (click)="modal.dismiss()">Cancelar</ion-button>
+        </div>
+
+        <h2>Cursos</h2>
+        <div class="ion-display-flex ion-flex-column cursos">
+          @for (curso of cursos; track curso.id) {
+            <ion-checkbox labelPlacement="end">{{ curso.nombre }}</ion-checkbox>
+          }
+        </div>
+
+        <h2>Categorías</h2>
+
+        @for (categoria of categorias; track categoria.id) {
+          <ion-chip
+            [class.seleccionado]="estaSeleccionada(categoria.id)"
+            [style.--color-categoria]="categoria.color"
+            (click)="alternar(categoria.id)">
+            {{ categoria.nombre }}
+          </ion-chip>
+        }
+
+        <h2>Fecha</h2>
+        <ion-datetime-button></ion-datetime-button>
+      </ion-content>
+    </ng-template>
+  </ion-modal>
 </ion-content>

@@ -1,23 +1,22 @@
 import { Component, OnInit } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
 import {
-  IonContent,
+  IonAvatar, IonButton, IonButtons,
   IonHeader,
   IonIcon,
-  IonLabel,
+  IonRouterLink,
   IonTabBar,
   IonTabButton,
-  IonTabs,
+  IonTabs, IonText,
   IonTitle,
   IonToolbar
 } from '@ionic/angular';
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-tabs',
   templateUrl: './tabs.page.html',
   styleUrls: ['./tabs.page.scss'],
-  imports: [IonLabel, IonTabButton, IonIcon, IonTabBar, IonTabs]
+  imports: [IonTabButton, IonIcon, IonTabBar, IonTabs, IonAvatar, IonHeader, IonToolbar, IonTitle, IonButtons, IonButton, IonRouterLink, RouterLink, IonText]
 })
 export class TabsPage implements OnInit {
 

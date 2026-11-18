@@ -1,0 +1,51 @@
+<ion-card class="ion-no-margin">
+  <ion-card-header class="ion-padding">
+    <ion-card-title>{{ evento().titulo }}</ion-card-title>
+  </ion-card-header>
+
+  <p class="ion-no-padding ion-padding-horizontal">¡Inscríbete antes del {{ evento().fechaLimite }}!</p>
+
+  <div class="ion-padding">
+    <img [src]="evento().foto" [alt]="evento().titulo" [style.border-color]="evento().colorCategoria" loading="lazy" class="imagen-evento">
+  </div>
+
+  <ion-card-content>
+    <ion-grid class="ion-no-padding">
+      <ion-row class="ion-padding-bottom">
+        <ion-col>
+          <div class="ion-display-flex ion-align-items-center tarjeta-dato">
+            <ion-icon name="calendar-number-outline"></ion-icon>
+            <p>{{ evento().fechaIni }}</p>
+          </div>
+        </ion-col>
+
+        <ion-col>
+          <div class="ion-display-flex ion-align-items-center ion-justify-content-end tarjeta-dato">
+            <ion-icon name="people"></ion-icon>
+            <p>{{ evento().aforoActual }}/{{ evento().aforoMax }}</p>
+          </div>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col>
+          <div class="ion-display-flex ion-align-items-center tarjeta-dato">
+            <ion-icon name="time-outline"></ion-icon>
+            <p>{{ evento().horaIni }}-{{evento().horaFin}}</p>
+          </div>
+        </ion-col>
+
+        <ion-col>
+          <div class="ion-display-flex ion-justify-content-end tarjeta-dato">
+            <p>En espera: {{ evento().enEspera }}</p>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <div class="ion-display-flex ion-flex-column ion-margin-top tarjeta-botones">
+      <app-boton-me-interesa></app-boton-me-interesa>
+      <app-boton-asistire></app-boton-asistire>
+    </div>
+  </ion-card-content>
+</ion-card>

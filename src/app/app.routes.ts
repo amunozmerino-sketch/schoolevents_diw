@@ -15,6 +15,14 @@ export const routes: Routes = [
         loadComponent: () => import('./paginas/eventos/eventos.page').then( m => m.EventosPage)
       },
       {
+        path: 'eventos/nuevo',
+        loadComponent: () => import('./paginas/evento-nuevo/evento-nuevo.page').then( m => m.EventoNuevoPage)
+      },
+      {
+        path: 'eventos/:id',
+        loadComponent: () => import('./paginas/evento-detalle/evento-detalle.page').then( m => m.EventoDetallePage)
+      },
+      {
         path: 'galeria',
         loadComponent: () => import('./paginas/galeria/galeria.page').then( m => m.GaleriaPage)
       },
@@ -35,6 +43,10 @@ export const routes: Routes = [
   {
     path: 'signup',
     loadComponent: () => import('./paginas/signup/signup.page').then( m => m.SignupPage)
+  },
+  {
+    path: 'notificaciones',
+    loadComponent: () => import('./paginas/notificaciones/notificaciones.page').then( m => m.NotificacionesPage)
   },
   {
     path: 'deporte',
@@ -61,7 +73,12 @@ export const routes: Routes = [
     loadComponent: () => import('./paginas/academico/academico.page').then( m => m.AcademicoPage)
   },
   {
-    path: 'notificaciones',
-    loadComponent: () => import('./paginas/notificaciones/notificaciones.page').then( m => m.NotificacionesPage)
+    path: 'no-encontrada',
+    loadComponent: () => import('./paginas/no-encontrada/no-encontrada.page').then( m => m.NoEncontradaPage)
+  },
+  {
+    path: 'proximos',
+    loadComponent: () => import('./paginas/proximos/proximos.page').then( m => m.ProximosPage)
   }
+
 ];

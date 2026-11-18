@@ -1,10 +1,31 @@
 <ion-tabs>
+  <ion-header slot="top">
+    <ion-toolbar>
+      <div slot="start" class="ion-display-flex ion-align-items-center ion-padding-start marca">
+        <img src="/assets/icon/logo.svg" alt="Logo" class="logo" />
+        <p class="logo-nombre">SchoolEvents</p>
+      </div>
+
+      <ion-buttons slot="end">
+        <ion-button routerLink="/notificaciones">
+          <ion-icon slot="icon-only" name="notifications-sharp"></ion-icon>
+        </ion-button>
+
+        <ion-button routerLink="/perfil">
+          <ion-avatar class="avatar">
+            <img src="assets/img/avatar.jpg" alt="Perfil"/>
+          </ion-avatar>
+        </ion-button>
+      </ion-buttons>
+    </ion-toolbar>
+  </ion-header>
+
   <ion-tab-bar slot="bottom">
     <ion-tab-button tab="eventos">
       <ion-icon name="home-sharp"></ion-icon>
     </ion-tab-button>
     <ion-tab-button tab="calendario">
-      <ion-icon name="calendar-clear-sharp"></ion-icon>
+      <ion-icon name="calendar-sharp"></ion-icon>
     </ion-tab-button>
     <ion-tab-button tab="galeria">
       <ion-icon name="images-sharp"></ion-icon>

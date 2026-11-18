@@ -1,7 +1,24 @@
+import { register } from 'swiper/element/bundle';
 import { Component } from '@angular/core';
 import { IonApp, IonRouterOutlet } from '@ionic/angular';
 import {addIcons} from "ionicons";
-import {homeSharp, imagesSharp, calendarClearSharp, personSharp} from "ionicons/icons";
+import {
+  homeSharp,
+  imagesSharp,
+  calendarSharp,
+  personSharp,
+  notificationsSharp,
+  arrowForwardSharp,
+  calendarNumberOutline,
+  timeOutline,
+  people,
+  hourglassOutline,
+  eyeOutline,
+  heartOutline,
+  optionsOutline
+} from "ionicons/icons";
+
+register();
 
 @Component({
   selector: 'app-root',
@@ -10,6 +27,20 @@ import {homeSharp, imagesSharp, calendarClearSharp, personSharp} from "ionicons/
 })
 export class AppComponent {
   constructor() {
-    addIcons({homeSharp, imagesSharp, calendarClearSharp, personSharp});
+    addIcons({
+      homeSharp,
+      imagesSharp,
+      calendarSharp,
+      personSharp,
+      notificationsSharp,
+      arrowForwardSharp,
+      calendarNumberOutline,
+      timeOutline,
+      people,
+      hourglassOutline,
+      eyeOutline,
+      heartOutline,
+      optionsOutline
+    });
   }
 }
