@@ -1,4 +1,22 @@
-import {Categoria} from "./categoria";
+import {Categoria, CategoriaCalendario} from "./categoria";
+import {RequisitoResumen} from "./requisito";
+import {Curso} from "./curso";
+
+export interface EventoGaleria {
+  id: number;
+  titulo: string;
+  grupo: string;
+}
+
+export interface EventoCalendario {
+  id: number;
+  titulo: string;
+  lugar: string;
+  fechaIni: string;
+  horaIni: string;
+  horaFin: string;
+  categoria: CategoriaCalendario;
+}
 
 export interface EventoDetalle {
   id: number;
@@ -13,9 +31,9 @@ export interface EventoDetalle {
   aforoMax: number;
   enEspera: number;
   lugar: string;
-  cursos: String[];
+  cursos: Curso[];
   categoria: Categoria;
-  requisitos: String[];
+  requisitos: RequisitoResumen[];
 }
 
 export interface EventoResumen {

@@ -1,11 +1,9 @@
 import {Component, input, OnInit} from '@angular/core';
 import {EventoResumen} from "../../modelos/evento";
 import {
-  IonButton,
   IonCard,
   IonCardContent,
   IonCardHeader,
-  IonCardSubtitle,
   IonCardTitle, IonCol,
   IonGrid,
   IonIcon,
@@ -13,6 +11,7 @@ import {
 } from "@ionic/angular";
 import {BotonMeInteresaComponent} from "../boton-me-interesa/boton-me-interesa.component";
 import {BotonAsistireComponent} from "../boton-asistire/boton-asistire.component";
+import {RouterLink} from "@angular/router";
 
 @Component({
   selector: 'app-tarjeta-evento',
@@ -23,14 +22,13 @@ import {BotonAsistireComponent} from "../boton-asistire/boton-asistire.component
     IonCardHeader,
     IonCardTitle,
     IonCardContent,
-    IonCardSubtitle,
     IonIcon,
     IonGrid,
     IonRow,
     IonCol,
-    IonButton,
     BotonMeInteresaComponent,
-    BotonAsistireComponent
+    BotonAsistireComponent,
+    RouterLink
   ],
 })
 export class TarjetaEventoComponent  implements OnInit {

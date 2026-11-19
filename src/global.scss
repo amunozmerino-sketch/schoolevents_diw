@@ -36,12 +36,128 @@
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import '@ionic/angular/css/palettes/dark.system.css';
 
-h1 {
-  margin-top: 10px;
+ion-header.header-md {
+  box-shadow: none;
+  -webkit-box-shadow: none;
+}
+
+ion-toolbar {
+  --background: var(--ion-background-color);
+  --border-width: 0 !important;
+}
+
+ion-content {
+  --padding-start: 1rem;
+  --padding-end: 1rem;
+  --padding-bottom: 1.5rem;
+}
+
+h1, ion-title {
+  margin: 0;
   font-size: 1.25rem;
+}
+
+h2 {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+ion-tab-bar {
+  --border: 0;
+}
+
+img {
+  width: 100%;
+  object-fit: cover;
+  aspect-ratio: 16 / 9;
+}
+
+ion-checkbox::part(container) {
+  border-radius: 4px;
+  border: 1.5px solid;
+}
+
+.lista-numerada {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  counter-reset: elemento;
+}
+
+.lista-numerada li {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  counter-increment: elemento;
+}
+
+.lista-numerada li::before {
+  min-width: 24px;
+  content: counter(elemento) '.';
+}
+
+.lista-puntos {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.lista-puntos li {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.lista-puntos li::before {
+  content: '•';
 }
 
 .flecha {
   height: 24px;
   width: 24px;
+}
+
+.inscribete {
+  font-weight: bold;
+  color: red;
+}
+
+.flex-align-items-center {
+  display: flex;
+  align-items: center;
+}
+
+.titulo-pagina {
+  font-size: 1.5rem;
+  font-weight: bolder;
+}
+
+.boton-crear {
+  --background: #00bf00;
+  --border-radius: 4px;
+}
+
+.boton-crear ion-icon {
+  font-size: 1.9rem;
+  color: white;
+}
+
+ion-popover.popover-ajustado {
+  --width: fit-content;
+}
+
+.imagen-nueva {
+  border: 2px dashed;
+  aspect-ratio: 16 / 9;
+}
+
+.imagen-nueva ion-icon {
+  width: 3rem;
+  height: auto;
+}
+
+app-carrusel-encabezado {
+  display: block;
+  margin-top: 1.5rem;
+  margin-bottom: 0.5rem;
 }

@@ -1,0 +1,23 @@
+<app-cabecera-atras [titulo]="'Crear publicación'"></app-cabecera-atras>
+
+<ion-content>
+  <h2>Contenido</h2>
+
+  <ion-textarea
+    [autoGrow]="true"
+    [counter]="true"
+    [maxlength]=150
+    mode="md"
+    fill="outline">
+  </ion-textarea>
+
+  <div class="ion-display-flex ion-flex-column ion-justify-content-center ion-align-items-center ion-margin-vertical imagen-nueva">
+    <ion-icon name="cloud-upload-outline"></ion-icon>
+    <p>Pulsa para añadir una foto</p>
+  </div>
+
+  <div class="flex-align-items-center formulario-botones">
+    <app-boton-cancelar></app-boton-cancelar>
+    <app-boton-guardar></app-boton-guardar>
+  </div>
+</ion-content>

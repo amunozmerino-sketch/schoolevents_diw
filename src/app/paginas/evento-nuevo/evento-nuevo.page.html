@@ -1,13 +1,111 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>evento-nuevo</ion-title>
-  </ion-toolbar>
-</ion-header>
+<app-cabecera-atras [titulo]="'Crear evento'"></app-cabecera-atras>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">evento-nuevo</ion-title>
-    </ion-toolbar>
-  </ion-header>
+<ion-content class="ion-padding">
+  <div class="ion-display-flex ion-flex-column ion-justify-content-center ion-align-items-center imagen-nueva">
+    <ion-icon name="cloud-upload-outline"></ion-icon>
+    <p>Pulsa para añadir una foto</p>
+  </div>
+
+  <h2>Descripción</h2>
+
+  <ion-textarea
+    [autoGrow]="true"
+    [counter]="true"
+    [maxlength]=150
+    mode="md"
+    fill="outline">
+  </ion-textarea>
+
+  <h2>Requisitos</h2>
+
+  <ol class="lista-numerada">
+    <li>
+      <ion-input
+        [counter]="true"
+        [maxlength]=100
+        mode="md"
+        fill="outline">
+      </ion-input>
+    </li>
+  </ol>
+
+  <ion-button fill="clear">
+    <ion-icon name="add-outline" class="add"></ion-icon>
+    Añadir requisito
+  </ion-button>
+
+  <h2>Detalles</h2>
+
+  <ul class="lista-puntos">
+    <li>
+      <div class="flex-align-items-center">
+        <p class="etiqueta">Fecha:</p>
+        <ion-input mode="md" fill="outline" type="date"></ion-input>
+      </div>
+    </li>
+
+    <li>
+      <div class="flex-align-items-center">
+        <p class="etiqueta">Hora:</p>
+        <div class="flex-align-items-center hora">
+          <ion-input mode="md" fill="outline" type="time"></ion-input>
+          -
+          <ion-input mode="md" fill="outline" type="time"></ion-input>
+        </div>
+      </div>
+    </li>
+
+    <li>
+      <div class="flex-align-items-center">
+        <p class="etiqueta">Lugar:</p>
+        <ion-select
+          class="seleccion"
+          [interfaceOptions]="{ size: 'auto' }"
+          aria-label="Categoría"
+          interface="popover"
+          fill="outline"
+          mode="md"
+          placeholder="Elige una categoría">
+          <ion-select-option value="Laboratorios">Laboratorios</ion-select-option>
+          <ion-select-option value="Salón de actos">Salón de actos</ion-select-option>
+          <ion-select-option value="Patio">Patio</ion-select-option>
+          <ion-select-option value="Gimnasio">Gimnasio</ion-select-option>
+          <ion-select-option value="Biblioteca">Biblioteca</ion-select-option>
+        </ion-select>      </div>
+    </li>
+
+    <li>
+      <div class="flex-align-items-center">
+        <p class="etiqueta">Aforo máximo:</p>
+        <ion-input class="aforo" mode="md" fill="outline" type="number">
+        </ion-input>
+      </div>
+    </li>
+  </ul>
+
+  <h2>Cursos</h2>
+
+  <div class="ion-display-flex ion-flex-column cursos">
+    @for (curso of cursos; track curso.id) {
+      <ion-checkbox labelPlacement="end">{{ curso.nombre }}</ion-checkbox>
+    }
+  </div>
+
+  <h2>Categoría</h2>
+
+  <ion-select
+    class="seleccion"
+    [interfaceOptions]="{ size: 'auto' }"
+    aria-label="Categoría"
+    interface="popover"
+    fill="outline"
+    mode="md"
+    placeholder="Elige una categoría">
+    <ion-select-option value="Ciencia">Ciencia</ion-select-option>
+    <ion-select-option value="Deporte">Deporte</ion-select-option>
+    <ion-select-option value="Solidario">Solidario</ion-select-option>
+    <ion-select-option value="Ocio">Ocio</ion-select-option>
+    <ion-select-option value="Cultura">Cultura</ion-select-option>
+    <ion-select-option value="Académico">Académico</ion-select-option>
+  </ion-select>
 </ion-content>

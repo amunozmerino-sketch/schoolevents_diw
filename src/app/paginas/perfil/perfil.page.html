@@ -1,3 +1,36 @@
-<ion-button color="danger" fill="outline" expand="block" routerLink="/login" routerDirection="root">
-  Cerrar sesión
-</ion-button>
+<ion-header class="ion-padding-horizontal">
+  <ion-toolbar class="ion-no-padding">
+    <h1 class="titulo-pagina">Mi perfil</h1>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-display-flex ion-flex-column ion-align-items-center">
+    <ion-avatar>
+      <img src="assets/img/avatar.jpg" alt="Foto de perfil"/>
+    </ion-avatar>
+
+    <p>Ana Camacho Barrio</p>
+  </div>
+
+  <h2>Preferencias</h2>
+  <div class="flex-align-items-center">
+    <p>Modo oscuro</p>
+    <ion-toggle></ion-toggle>
+  </div>
+
+  <h2>Agenda personal</h2>
+  <div class="flex-align-items-center ion-justify-content-between">
+    <p>Inscripciones</p>
+    <ion-icon name="chevron-forward"></ion-icon>
+  </div>
+
+  <div class="flex-align-items-center ion-justify-content-between">
+    <p>Siguiendo</p>
+    <ion-icon name="chevron-forward"></ion-icon>
+  </div>
+
+  <ion-button color="danger" fill="outline" expand="block" routerLink="/login" routerDirection="root">
+    Cerrar sesión
+  </ion-button>
+</ion-content>

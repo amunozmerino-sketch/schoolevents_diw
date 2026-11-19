@@ -1,0 +1,39 @@
+p {
+  margin: 0;
+}
+
+p {
+  text-align: justify;
+}
+
+.publicacion {
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.publicacion-usuario {
+  gap: 1rem;
+  width: fit-content;
+}
+
+.publicacion-usuario-datos, .publicacion-info, .publicacion-estado {
+  gap: 0.3rem;
+}
+
+.publicacion-info p {
+  font-size: 0.9rem;
+}
+
+.menu-icono {
+  font-size: 1.5rem;
+}
+
+.menu-opcion {
+  font-size: 0.9rem;
+  margin-left: 0.5rem;
+}
+
+.menu-lista.list-md {
+  padding-top: 0;
+  padding-bottom: 0;
+}

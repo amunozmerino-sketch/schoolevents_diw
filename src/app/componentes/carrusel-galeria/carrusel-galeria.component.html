@@ -1,0 +1,16 @@
+<swiper-container
+  slides-per-view="1.2"
+  space-between="12"
+>
+  @for (publicacion of publicaciones; track publicacion.id) {
+    @if (publicacion.id_evento === id_evento()) {
+      @for (foto of fotos_publicacion; track foto.id) {
+        @if (foto.id_publicacion === publicacion.id) {
+          <swiper-slide>
+            <img [src]="foto.enlace" alt="Foto" [routerLink]="ruta()">
+          </swiper-slide>
+        }
+      }
+    }
+  }
+</swiper-container>

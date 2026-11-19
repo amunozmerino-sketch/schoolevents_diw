@@ -6,8 +6,7 @@ import {
   IonRouterLink,
   IonTabBar,
   IonTabButton,
-  IonTabs, IonText,
-  IonTitle,
+  IonTabs,
   IonToolbar
 } from '@ionic/angular';
 import {RouterLink} from "@angular/router";
@@ -16,7 +15,7 @@ import {RouterLink} from "@angular/router";
   selector: 'app-tabs',
   templateUrl: './tabs.page.html',
   styleUrls: ['./tabs.page.scss'],
-  imports: [IonTabButton, IonIcon, IonTabBar, IonTabs, IonAvatar, IonHeader, IonToolbar, IonTitle, IonButtons, IonButton, IonRouterLink, RouterLink, IonText]
+  imports: [IonTabButton, IonIcon, IonTabBar, IonTabs, IonAvatar, IonHeader, IonToolbar, IonButtons, IonButton, IonRouterLink, RouterLink]
 })
 export class TabsPage implements OnInit {
 

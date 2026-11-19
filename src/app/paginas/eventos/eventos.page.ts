@@ -1,5 +1,12 @@
-import { EVENTOS_RESUMEN } from "../../datos/eventos";
-import {Component, OnInit, CUSTOM_ELEMENTS_SCHEMA, signal} from '@angular/core';
+import {
+  EVENTOS_ACADEMICO, EVENTOS_CIENCIA,
+  EVENTOS_CULTURA,
+  EVENTOS_DEPORTE,
+  EVENTOS_OCIO,
+  EVENTOS_RESUMEN,
+  EVENTOS_SOLIDARIO
+} from "../../datos/eventos";
+import {Component, OnInit, signal} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import {
@@ -10,16 +17,23 @@ import {RouterLink} from "@angular/router";
 import {TarjetaEventoComponent} from "../../componentes/tarjeta-evento/tarjeta-evento.component";
 import {CATEGORIAS} from "../../datos/categorias";
 import {CURSOS} from "../../datos/cursos";
+import {CarruselEventoComponent} from "../../componentes/carrusel-evento/carrusel-evento.component";
+import {CarruselEncabezadoComponent} from "../../componentes/carrusel-encabezado/carrusel-encabezado.component";
 
 @Component({
   selector: 'app-eventos',
   templateUrl: './eventos.page.html',
   styleUrls: ['./eventos.page.scss'],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA],
-  imports: [CommonModule, FormsModule, IonContent, IonSearchbar, IonRouterLink, RouterLink, IonIcon, IonButton, TarjetaEventoComponent, IonHeader, IonToolbar, IonButtons, IonModal, IonInput, IonChip, IonCheckbox, IonDatetime, IonDatetimeButton]
+  imports: [CommonModule, FormsModule, IonContent, IonSearchbar, IonRouterLink, RouterLink, IonIcon, IonButton, TarjetaEventoComponent, IonHeader, IonToolbar, IonButtons, IonModal, IonInput, IonChip, IonCheckbox, IonDatetime, IonDatetimeButton, CarruselEventoComponent, CarruselEncabezadoComponent]
 })
 export class EventosPage implements OnInit {
   eventos = EVENTOS_RESUMEN;
+  eventosCiencia = EVENTOS_CIENCIA;
+  eventosDeporte = EVENTOS_DEPORTE;
+  eventosSolidario = EVENTOS_SOLIDARIO;
+  eventosOcio = EVENTOS_OCIO;
+  eventosCultura = EVENTOS_CULTURA;
+  eventosAcademico = EVENTOS_ACADEMICO;
   categorias = CATEGORIAS;
   cursos = CURSOS;
 

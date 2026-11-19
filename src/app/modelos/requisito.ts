@@ -5,3 +5,8 @@ export interface Requisito {
   descripcion: string;
   evento: number;
 }
+
+export interface RequisitoResumen {
+  id: number;
+  descripcion: string;
+}

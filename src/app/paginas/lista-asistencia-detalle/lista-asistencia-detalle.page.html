@@ -1,0 +1,45 @@
+@if (evento(); as e) {
+  <app-cabecera-atras [titulo]="e.titulo"></app-cabecera-atras>
+
+  <ion-content>
+      @for (usuario of usuarios; track usuario.id) {
+        @switch (usuario.rol) {
+          @case ("ADMINISTRADOR") {
+            <div class="flex-align-items-center ion-justify-content-between ion-margin-bottom usuario-inscrito">
+              <div class="ion-display-flex ion-flex-column usuario-inscrito-info">
+                <p class="nombre-usuario">{{ usuario.nombre }} {{ usuario.apellidos }}</p>
+
+                <p class="asistente-info">{{ usuario.curso }}</p>
+              </div>
+
+              <p class="asistente-info">Administrador</p>
+            </div>
+          }
+
+          @case ("ORGANIZADOR") {
+            <div class="flex-align-items-center ion-justify-content-between ion-margin-bottom usuario-inscrito">
+              <div class="ion-display-flex ion-flex-column usuario-inscrito-info">
+                <p class="nombre-usuario">{{ usuario.nombre }} {{ usuario.apellidos }}</p>
+
+                <p class="asistente-info">{{ usuario.curso }}</p>
+              </div>
+
+              <p class="asistente-info">Organizador</p>
+            </div>
+          }
+          
+          @case ("ESTUDIANTE") {
+            <div class="flex-align-items-center ion-justify-content-between ion-margin-bottom usuario-inscrito">
+              <div class="ion-display-flex ion-flex-column usuario-inscrito-info">
+                <p class="nombre-usuario">{{ usuario.nombre }} {{ usuario.apellidos }}</p>
+
+                <p class="asistente-info">{{ usuario.curso }}</p>
+              </div>
+
+              <p class="asistente-info">Estudiante</p>
+            </div>
+          }
+        }
+      }
+  </ion-content>
+}

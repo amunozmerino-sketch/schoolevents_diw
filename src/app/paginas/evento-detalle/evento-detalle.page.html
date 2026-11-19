@@ -1,12 +1,65 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/app/eventos"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Feria de ciencias</ion-title>
-  </ion-toolbar>
-</ion-header>
+@if (evento(); as e) {
+  <app-cabecera-atras [titulo]="e.titulo"></app-cabecera-atras>
 
-<ion-content class="ion-padding">
-  <p>Estás viendo el evento con <strong>id = {{ id() }}</strong></p>
-</ion-content>
+  <ion-content class="ion-padding">
+    <img [src]="e.foto" [alt]="e.titulo" loading="lazy">
+
+    <div class="flex-align-items-center ion-justify-content-between info">
+      <p class="inscribete">¡Inscríbete antes del {{ e.fechaLimite }}!</p>
+
+      <div class="flex-align-items-center espaciado">
+        <div class="flex-align-items-center chip-asistencia inscritos">
+          <p class="texto-asistencia">Inscritos: {{ e.aforoActual }}/{{ e.aforoMax }}</p>
+        </div>
+
+        <div class="flex-align-items-center chip-asistencia en-espera">
+          <p class="texto-asistencia">En espera: {{ e.enEspera }}</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex-align-items-center espaciado">
+      <app-boton-me-interesa></app-boton-me-interesa>
+      <app-boton-asistire></app-boton-asistire>
+    </div>
+
+    <h2>Descripción</h2>
+
+    <p>{{ e.descripcion }}.</p>
+
+    <h2>Requisitos</h2>
+
+    <ol>
+      @for (requisito of e.requisitos; track requisito.id) {
+        <li>{{ requisito.descripcion }}.</li>
+      }
+    </ol>
+
+    <h2>Detalles</h2>
+
+    <ul>
+      <li><b>Fecha:</b> {{ e.fechaIni }}.</li>
+      <li><b>Hora:</b> {{ e.horaIni }}-{{ e.horaFin }}.</li>
+      <li><b>Lugar:</b> {{ e.lugar }}.</li>
+      <li><b>Aforo máximo:</b> {{ e.aforoMax }}.</li>
+    </ul>
+
+    <h2>Cursos</h2>
+
+    <ul>
+      @for (curso of e.cursos; track curso.id) {
+        <li>{{ curso.nombre }}.</li>
+      }
+    </ul>
+
+    <h2>Categoría</h2>
+
+    <div class="flex-align-items-center chip-categoria" [style.--color-categoria]="e.categoria.color">
+      <ion-icon [name]="e.categoria.icono"></ion-icon>
+      <p>{{ e.categoria.nombre }}</p>
+    </div>
+
+  </ion-content>
+} @else {
+  <p>Evento no encontrado.</p>
+}

@@ -4,7 +4,7 @@ p {
 }
 
 ion-card-content {
-  padding: 0 1rem 1rem;
+  padding: 1rem 0 0;
 }
 
 ion-card-title {
@@ -16,11 +16,8 @@ ion-icon {
 }
 
 .imagen-evento {
-  width: 100%;
   border: 6px solid;
   border-radius: 10px;
-  object-fit: cover;
-  aspect-ratio: 16 / 9;
 }
 
 .tarjeta-dato {

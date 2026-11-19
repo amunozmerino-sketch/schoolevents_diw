@@ -1,4 +1,4 @@
-ion-chip{
+ion-chip {
   transition: background 0.2s, color 0.2s;
 }
 
@@ -7,26 +7,20 @@ ion-chip.seleccionado {
   --color: white;
 }
 
-ion-checkbox::part(container) {
-  border-radius: 4px;
-  border: 1.5px solid;
+ion-toolbar.ios {
+  padding: 0;
 }
 
-h2 {
-  font-size: 1.2rem;
-  margin-bottom: 1rem;
-}
-
-.cabecera-eventos {
-  background: var(--ion-background-color-rgb);
-}
-
-.barra {
-  --background: var(--ion-background-color)
+.espacio {
+  padding: 1.35rem;
+  --padding-start: 1.35rem;
+  --padding-end: 1.35rem;
+  --padding-bottom: 1.35rem;
+  --padding-top: 1.35rem;
 }
 
 .busqueda-filtro {
-  padding: 0.55rem 1rem;
+  padding: 0.55rem 0.3rem 0.55rem 1rem;
   gap: 0.5rem;
 }
 
@@ -34,19 +28,34 @@ h2 {
   padding: 0;
 }
 
-.encabezado {
-  gap: 0.2rem;
-}
-
-.encabezado-filtro {
-  font-size: 1.5rem;
-  font-weight: bolder;
+.proximos {
+  margin-top: 0.5rem;
 }
 
 .cabecera-filtro {
   justify-content: space-between;
 }
 
+.encabezado-filtro {
+  margin-top: 2rem;
+}
+
+.cursos-filtro {
+  margin-top: 0;
+}
+
 .cursos {
   gap: 1rem;
+}
+
+.margen-filtro {
+  margin-bottom: 1.35rem;
+}
+
+.categorias {
+  gap: 0.6rem;
+}
+
+.fechas-filtro {
+  gap: 0.75rem;
 }

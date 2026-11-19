@@ -1,0 +1,76 @@
+ol li ion-input, ul li ion-input {
+  min-height: 0;
+  --padding-top: 0.6rem;
+  --padding-bottom: 0.6rem;
+  --padding-start: 0.6rem;
+  --padding-end: 0.6rem;
+}
+
+ol li ion-input, ul li ion-input, ion-checkbox, ion-textarea, ion-button, ion-select {
+  font-size: 0.9rem;
+}
+
+ol li {
+  margin-top: 1rem;
+}
+
+h2 {
+  margin-bottom: 1rem;
+}
+
+.etiqueta {
+  margin-left: 0.6rem;
+  margin-right: 0.8rem;
+  font-weight: bold;
+}
+
+.hora {
+  gap: 0.5rem;
+}
+
+ion-button {
+  margin: 0;
+  --padding-start: 0;
+  --padding-end: 0;
+}
+
+.add {
+  margin-right: 0.3rem;
+}
+
+.seleccion {
+  width: fit-content;
+  min-height: 0;
+  --padding-top: 0.6rem;
+  --padding-bottom: 0.6rem;
+  --padding-start: 0.6rem;
+  --padding-end: 0.6rem;
+}
+
+.cursos {
+  gap: 1rem;
+}
+
+.imagen-editable {
+  position: relative;
+}
+
+.boton-cambiar {
+  position: absolute;
+  width: fit-content;
+  --padding-top: 0.6rem;
+  --padding-bottom: 0.6rem;
+  --padding-start: 0.6rem;
+  --padding-end: 0.6rem;
+  --border-radius: 0.3rem;
+  right: 12px;
+  bottom: 12px;
+}
+
+.boton-cambiar-icono {
+  margin-right: 0.5rem;
+}
+
+.aforo {
+  width: fit-content;
+}

@@ -1,0 +1,126 @@
+@if (evento(); as e) {
+  <app-cabecera-atras [titulo]="'Editar evento'"></app-cabecera-atras>
+
+  <ion-content class="ion-padding">
+    <div class="imagen-editable">
+      <img [src]="e.foto" [alt]="e.titulo" class="imagen-evento" loading="lazy">
+
+      <ion-button class="flex-align-items-center boton-cambiar">
+        <ion-icon class="boton-cambiar-icono" name="image"></ion-icon>
+        Cambiar imagen
+      </ion-button>
+    </div>
+
+    <h2>Descripción</h2>
+
+    <ion-textarea
+      [value]="e.descripcion"
+      [autoGrow]="true"
+      [counter]="true"
+      [maxlength]=150
+      mode="md"
+      fill="outline">
+    </ion-textarea>
+
+    <h2>Requisitos</h2>
+
+    <ol class="lista-numerada">
+      @for (requisito of e.requisitos; track requisito.id) {
+        <li>
+          <ion-input
+            [value]="requisito.descripcion"
+            [counter]="true"
+            [maxlength]=100
+            mode="md"
+            fill="outline">
+          </ion-input>
+        </li>
+      }
+    </ol>
+
+    <ion-button fill="clear">
+      <ion-icon name="add-outline" class="add"></ion-icon>
+      Añadir requisito
+    </ion-button>
+
+    <h2>Detalles</h2>
+
+    <ul class="lista-puntos">
+      <li>
+        <div class="flex-align-items-center">
+          <p class="etiqueta">Fecha:</p>
+          <ion-input [value]="aFechaInput(e.fechaIni)" mode="md" fill="outline" type="date"></ion-input>
+        </div>
+      </li>
+
+      <li>
+        <div class="flex-align-items-center">
+          <p class="etiqueta">Hora:</p>
+          <div class="flex-align-items-center hora">
+            <ion-input [value]="e.horaIni" mode="md" fill="outline" type="time"></ion-input>
+            -
+            <ion-input [value]="e.horaFin" mode="md" fill="outline" type="time"></ion-input>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="flex-align-items-center">
+          <p class="etiqueta">Lugar:</p>
+          <ion-select
+            class="seleccion"
+            [value]="e.lugar"
+            [interfaceOptions]="{ size: 'auto' }"
+            aria-label="Categoría"
+            interface="popover"
+            fill="outline"
+            mode="md"
+            placeholder="Elige una categoría">
+            <ion-select-option value="Laboratorios">Laboratorios</ion-select-option>
+            <ion-select-option value="Salón de actos">Salón de actos</ion-select-option>
+            <ion-select-option value="Patio">Patio</ion-select-option>
+            <ion-select-option value="Gimnasio">Gimnasio</ion-select-option>
+            <ion-select-option value="Biblioteca">Biblioteca</ion-select-option>
+          </ion-select>
+        </div>
+      </li>
+
+      <li>
+        <div class="flex-align-items-center">
+          <p class="etiqueta">Aforo máximo:</p>
+          <ion-input class="aforo" [value]="e.aforoMax" [max]="e.aforoMax" [min]="0" mode="md" fill="outline" type="number">
+          </ion-input>
+        </div>
+      </li>
+    </ul>
+
+    <h2>Cursos</h2>
+
+    <div class="ion-display-flex ion-flex-column cursos">
+      @for (curso of cursos; track curso.id) {
+        <ion-checkbox labelPlacement="end" [checked]="estaMarcado(curso, e.cursos)">{{ curso.nombre }}</ion-checkbox>
+      }
+    </div>
+
+    <h2>Categoría</h2>
+
+    <ion-select
+      class="seleccion"
+      [value]="e.categoria.nombre"
+      [interfaceOptions]="{ size: 'auto' }"
+      aria-label="Categoría"
+      interface="popover"
+      fill="outline"
+      mode="md"
+      placeholder="Elige una categoría">
+      <ion-select-option value="Ciencia">Ciencia</ion-select-option>
+      <ion-select-option value="Deporte">Deporte</ion-select-option>
+      <ion-select-option value="Solidario">Solidario</ion-select-option>
+      <ion-select-option value="Ocio">Ocio</ion-select-option>
+      <ion-select-option value="Cultura">Cultura</ion-select-option>
+      <ion-select-option value="Académico">Académico</ion-select-option>
+    </ion-select>
+  </ion-content>
+} @else {
+  <p>Evento no encontrado.</p>
+}

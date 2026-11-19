@@ -4,3 +4,9 @@ export interface Categoria {
   icono: string;
   color: string;
 }
+
+export interface CategoriaCalendario {
+  id: number;
+  icono: string;
+  color: string;
+}

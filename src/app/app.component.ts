@@ -15,7 +15,26 @@ import {
   hourglassOutline,
   eyeOutline,
   heartOutline,
-  optionsOutline
+  optionsOutline,
+  arrowBackOutline,
+  flask,
+  alertCircle,
+  checkmarkCircle,
+  warning,
+  informationCircle,
+  chevronForward,
+  addOutline,
+  image,
+  cloudUploadOutline,
+  ellipsisHorizontal,
+  downloadOutline,
+  close,
+  checkmark,
+  clipboardOutline,
+  createOutline,
+  pencil,
+  trash,
+  ban
 } from "ionicons/icons";
 
 register();
@@ -40,7 +59,26 @@ export class AppComponent {
       hourglassOutline,
       eyeOutline,
       heartOutline,
-      optionsOutline
+      optionsOutline,
+      arrowBackOutline,
+      flask,
+      alertCircle,
+      checkmarkCircle,
+      warning,
+      informationCircle,
+      chevronForward,
+      addOutline,
+      image,
+      cloudUploadOutline,
+      ellipsisHorizontal,
+      downloadOutline,
+      close,
+      checkmark,
+      clipboardOutline,
+      createOutline,
+      pencil,
+      trash,
+      ban
     });
   }
 }

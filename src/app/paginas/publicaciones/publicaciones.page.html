@@ -1,0 +1,84 @@
+@if (evento(); as e) {
+  <div class="flex-align-items-center ion-justify-content-between">
+    <app-cabecera-atras [titulo]="e.titulo"></app-cabecera-atras>
+    <ion-button routerLink="crear" class="ion-margin-end boton-crear" size="small">
+      <ion-icon name="add-outline" slot="icon-only"></ion-icon>
+    </ion-button>
+  </div>
+
+  <ion-content>
+    @for (publicacion of publicaciones; track publicacion.id) {
+      @if (publicacion.id_evento === e.id) {
+        @for (usuario of usuarios; track usuario.id) {
+          @if (publicacion.id_usuario === usuario.id) {
+            <div class="ion-display-flex ion-flex-column publicacion">
+              <div class="flex-align-items-center ion-justify-content-between">
+                <div class="flex-align-items-center publicacion-usuario">
+                  <ion-avatar>
+                    <img src="assets/img/avatar.jpg" alt="Foto de perfil">
+                  </ion-avatar>
+
+                  <div class="ion-display-flex ion-flex-column publicacion-usuario-datos">
+                    <p>{{ usuario.nombre }} {{ usuario.apellidos }}</p>
+
+                    <div class="ion-display-flex ion-flex-column publicacion-info">
+                      @switch (usuario.rol) {
+                        @case ("ADMINISTRADOR") {
+                          <p>Administrador</p>
+                        }
+                        @case ("ORGANIZADOR") {
+                          <p>Organizador</p>
+                        }
+                        @case ("ESTUDIANTE") {
+                          <p>Estudiante</p>
+                        }
+                      }
+
+                      <div class="flex-align-items-center publicacion-estado">
+                        <p>{{ publicacion.publicada }}</p>
+                        @if (publicacion.editada) {
+                          <p>•</p>
+                          <p>Editado</p>
+                        }
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <ion-button (click)="abrirMenu($event)" fill="clear">
+                  <ion-icon slot="icon-only" name="ellipsis-horizontal"></ion-icon>
+                </ion-button>
+              </div>
+
+              @if (publicacion.texto) {
+                <p>{{ publicacion.texto }}</p>
+              }
+
+              @for (foto of fotos_publicacion; track foto.id) {
+                @if (foto.id_publicacion === publicacion.id) {
+                  <img [src]="foto.enlace" alt="Foto publicación">
+                }
+              }
+            </div>
+          }
+        }
+      }
+    }
+
+    <ion-popover [isOpen]="menuAbierto()"
+                 [event]="eventoClic"
+                 (didDismiss)="menuAbierto.set(false)"
+                 triggerAction="click"
+                 mode="md"
+                 class="popover-ajustado">
+      <ng-template>
+        <ion-list lines="none" class="menu-lista">
+          <ion-item [button]="true" (click)="descargar()" [detail]="false">
+            <ion-icon name="download-outline"></ion-icon>
+            <p class="menu-opcion">Descargar imagen</p>
+          </ion-item>
+        </ion-list>
+      </ng-template>
+    </ion-popover>
+  </ion-content>
+}

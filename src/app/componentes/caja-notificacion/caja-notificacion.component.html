@@ -1,0 +1,30 @@
+@if (notificacionesGrupo().length > 0) {
+  <h2 class="notificacion-titulo">{{ titulo() }}</h2>
+
+  <div class="notificacion-caja">
+    @for (notificacion of notificacionesGrupo(); track notificacion.id) {
+      <div class="flex-align-items-center ion-justify-content-between notificacion">
+        <div class="flex-align-items-center notificacion-contenido">
+          @switch (notificacion.tipo) {
+            @case ('aviso') {
+              <ion-icon name="warning" class="icono" [class]="notificacion.tipo"></ion-icon>
+            }
+            @case ('alerta') {
+              <ion-icon name="alert-circle" class="icono" [class]="notificacion.tipo"></ion-icon>
+            }
+            @case ('confirmacion') {
+              <ion-icon name="checkmark-circle" class="icono" [class]="notificacion.tipo"></ion-icon>
+            }
+            @case ('info') {
+              <ion-icon name="information-circle" class="icono" [class]="notificacion.tipo"></ion-icon>
+            }
+          }
+
+          <p>{{ notificacion.mensaje }}</p>
+        </div>
+
+        @if (!notificacion.leida) { <span slot="end" class="punto"></span> }
+      </div>
+    }
+  </div>
+}

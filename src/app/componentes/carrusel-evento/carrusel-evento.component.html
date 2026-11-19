@@ -1,0 +1,10 @@
+<swiper-container
+  slides-per-view="1.2"
+  space-between="12"
+>
+  @for (evento of eventos(); track evento.id) {
+    <swiper-slide>
+      <app-tarjeta-evento [evento]="evento"/>
+    </swiper-slide>
+  }
+</swiper-container>

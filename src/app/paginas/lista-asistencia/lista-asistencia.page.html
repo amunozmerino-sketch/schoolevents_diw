@@ -1,0 +1,23 @@
+<ion-header class="ion-padding-horizontal">
+  <ion-toolbar class="ion-no-padding">
+    <h1 class="titulo-pagina">Listas de asistencia</h1>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding-top">
+  @for (evento of eventos; track evento.id) {
+    <div class="flex-align-items-center ion-justify-content-between chip-evento" [style.--color-categoria]="evento.categoria.color">
+      <div class="flex-align-items-center chip-evento-info">
+        <ion-icon [name]="evento.categoria.icono" class="icono-categoria"></ion-icon>
+        <div class="ion-display-flex ion-flex-column evento-info">
+          <h4>{{ evento.titulo }}</h4>
+          <p>{{ evento.fechaIni }} • {{ evento.horaIni }}-{{ evento.horaFin }}</p>
+        </div>
+      </div>
+
+      <ion-button [routerLink]="[evento.id]" class="boton-abrir" size="small" fill="clear">
+        <ion-icon name="chevron-forward" class="abrir-lista"></ion-icon>
+      </ion-button>
+    </div>
+  }
+</ion-content>

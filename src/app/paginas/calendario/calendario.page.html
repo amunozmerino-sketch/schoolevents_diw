@@ -1,3 +1,35 @@
+<ion-header class="ion-padding-horizontal">
+  <ion-toolbar class="ion-no-padding">
+    <h1 class="titulo-pagina">Calendario</h1>
+  </ion-toolbar>
+</ion-header>
+
 <ion-content>
-  <ion-datetime presentation="date"></ion-datetime>
+  <div class="ion-display-flex ion-justify-content-center">
+    <ion-datetime presentation="date"></ion-datetime>
+  </div>
+
+  <h2 class="dia-seleccionado">24 de noviembre</h2>
+
+  <h2>Hoy</h2>
+
+  <h3>22 de noviembre de 2026</h3>
+
+  <h2>Este mes</h2>
+
+  @for (evento of eventos; track evento.id) {
+    <h3>{{ evento.fechaIni }}</h3>
+
+    <div class="flex-align-items-center ion-justify-content-between chip-evento" [style.--color-categoria]="evento.categoria.color">
+      <div class="flex-align-items-center chip-evento-info">
+        <ion-icon [name]="evento.categoria.icono"></ion-icon>
+        <div class="ion-display-flex ion-flex-column evento-info">
+          <h4>{{ evento.titulo }}</h4>
+          <p>{{ evento.lugar }}</p>
+        </div>
+      </div>
+
+      <p>{{ evento.horaIni }}-{{ evento.horaFin }}</p>
+    </div>
+  }
 </ion-content>
